@@ -1,0 +1,139 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  body {
+    background-color: #e2715d;
+  }
+  .card {
+    width: 640px;
+    height: 400px;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -webkit-perspective: 1200px;
+    perspective: 1200px;
+    transition: 1s;
+  }
+  .card:hover {
+    transform: rotate(-5deg);
+  }
+  .card:hover .outside {
+    transform: rotateY(-130deg);
+  }
+  .outside,
+  .inside {
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    left: 50.1%;
+  }
+  .inside {
+    background: linear-gradient(to right, #e7e7e7, #ffffff 30%);
+    line-height: 3;
+    padding: 0 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    left: 50%;
+  }
+  .outside {
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    z-index: 1;
+    transform-origin: left;
+    transition: 2s;
+    cursor: pointer;
+  }
+  .front,
+  .back {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: rotateX(0deg);
+  }
+  .front {
+    background-color: #ffffff;
+  }
+  .back {
+    transform: rotateY(180deg);
+    background: linear-gradient(to left, #e7e7e7, #ffffff 30%);
+  } 
+
+  .corazon {
+    width: 150px; /* Ancho del corazón */
+    height: 150px; /* Alto del corazón */
+    position: absolute;
+    top: 50%; /* Centrar verticalmente */
+    left: 50%; /* Centrar horizontalmente */
+    transform: translate(-50%, -50%); /* Desplazar al centro */
+  }
+  
+  .corazon::before,
+  .corazon::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100px; /* Ancho de las mitades */
+    height: 150px; /* Alto de las mitades */
+    background-color: #fd0606; /* Color del corazón */
+    border-radius: 50% 50% 0 0; /* Ajuste de la forma */
+  }
+  
+  .corazon::before {
+    left: 0;
+    transform: rotate(-49deg); /* Rotar hacia la izquierda */
+  }
+  
+  .corazon::after {
+    right: 0;
+    transform: rotate(52deg); /* Rotar hacia la derecha */
+  }
+  
+  
+  .outside p {
+    font-size: 23px;
+    text-transform: uppercase;
+    margin-top: 30px;
+    text-align: center;
+    letter-spacing: 6px;
+    color: #000046;
+  }
+  /*.inside h1 {
+    font-size: 100px;
+    line-height: 100px;
+  }*/
+
+  .inside .botones {
+    text-align: center; /* Centrar los botones horizontalmente */
+  }
+  
+  .inside .botones button {
+    font-size: 18px; /* Tamaño de fuente del botón */
+    padding: 10px 18px; /* Espacio alrededor del texto del botón */
+    margin: 10px; /* Espacio entre los botones */
+    background-color: #fd0606; /* Color de fondo del botón */
+    color: #ffffff; /* Color del texto del botón */
+    border: none; /* Eliminar borde del botón */
+    border-radius: 5px; /* Borde redondeado del botón */
+    cursor: pointer; /* Cambiar cursor al pasar sobre el botón */
+  }
+  
+  .inside .botones button:hover {
+    background-color: #d30000; /* Cambiar color de fondo al pasar el cursor */
+  }
+  
+  #texto-si,
+  #texto-no {
+    display: none; /* Ocultar los textos inicialmente */
+  }
+  
